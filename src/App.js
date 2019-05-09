@@ -11,13 +11,13 @@ class App extends React.Component{
   }
 
   increment = () => {
-    console.log('step 1')
-    if(this.state.number === 0){
+    if(this.timerID === undefined){
       this.timerID = setInterval( () => this.setState( (state) => ({ 
         number: state.number + 1
       })), 1000 )
     } else {
-      clearInterval(this.timerID)
+        clearInterval(this.timerID)
+        delete this.timerID
     }
   }
 
